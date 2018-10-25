@@ -37,19 +37,17 @@ Provided is a `train.py` file that will train the standard model. Feel free to e
 ```python
 # Available Entrypoint Arguments
 parser = argparse.ArgumentParser()
-parser.add_argument("-save", "--save_path", type=str, default=None)
-parser.add_argument("-order", "--order", type=int, default=1)
-parser.add_argument("-neg", "--negsamplesize", type=int, default=5)
-parser.add_argument("-dim", "--dimension", type=int, default=128)
-parser.add_argument("-batchsize", "--batchsize", type=int, default=16)
-parser.add_argument("-epochs", "--epochs", type=int, default=5)
-parser.add_argument("-lr", "--learning_rate", type=float, default=0.025)
-parser.add_argument("-log", "--log", type=int, default=1000)
-parser.add_argument("-threads", "--threads", type=int, default=1)
+parser.add_argument("-save", "--save_path", type=str, default=None)       # S3 path to save data to. Make sure you have AWS credentials set as env vars.
+parser.add_argument("-order", "--order", type=int, default=1)             # First order or Second order proximity.
+parser.add_argument("-neg", "--negsamplesize", type=int, default=5)       # Number of negative samples. Original value from the LINE paper.
+parser.add_argument("-dim", "--dimension", type=int, default=128)         # Number of output embedding dimensions. Original value from the LINE paper.
+parser.add_argument("-batchsize", "--batchsize", type=int, default=16)    # Size of a training batch.
+parser.add_argument("-epochs", "--epochs", type=int, default=5)           # Number of total passes through training data.
+parser.add_argument("-lr", "--learning_rate", type=float, default=0.025)  # Initial learning rate. Original value from the LINE paper.
+parser.add_argument("-log", "--log", type=int, default=1000)              # Logging interval.
+parser.add_argument("-threads", "--threads", type=int, default=1)         # Number of threads for PyTorch to perform computations. Make sure you declare enough CPUs in the metis config file.
 args = parser.parse_args()
 ```
-
-The `-save` argument expects an s3 path. If you decide to save some model weights to an s3 bucket, just provide the path with the `-save` argument and set your AWS access and secret keys in the environment with the CLI.
 
 You can run this deployment with all of the defaults.. (but note that it won't save your outputs anywhere!)
 
@@ -75,3 +73,5 @@ That's it! No need to focus on infrastructure..
 
 ## What's Next
 Pretty neat? If you have other ways you want to leverage machine learning, checkout [**AddOns**](https://docs.metismachine.io/docs/addons) and other [**SDK Features**](https://docs.metismachine.io/docs/skafos-sdk) provided with Skafos *out-of-the-box*.
+
+Reach out to the [**Skafos Slack Channel**]() with any questions or concerns. We'd also love to get your feedback!
