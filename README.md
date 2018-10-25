@@ -11,14 +11,14 @@ Attendees of the workshop already will have:
 ## Setup
 You will need to install the [**Skafos CLI**](https://docs.metismachine.io/docs/installation) (mac or linux), Git, and have python >= 3.6.
 
-###1. Clone or Fork this Repo
+### 1. Clone or Fork this Repo
 
-###2. Examine `metis.config.yml.example`
+### 2. Examine `metis.config.yml.example`
 Each Skafos project requires its own unique project token and `metis.config.yml` file.
 The `metis.config.yml.example` file provided in this repo is just a sample, but is identical in structure to what you will need. In summary, [**the config file**](https://docs.metismachine.io/docs/installation) is the workhorse that controls how your deployment runs.
 
 In the next step, you wil generate your own.
-###3: Initialize the Skafos project
+### 3: Initialize the Skafos project
 Once in the working directory of this project, type:
 ```bash
 skafos init
@@ -26,12 +26,12 @@ skafos init
 on the command line. This will generate a fresh `metis.config.yml` file that is tied to your Skafos account and organization.
 Open up this config file and edit the **name** and **entrypoint** of the existing job to match the example config provided. The job id and project token are unique to you. Add any other options arguments that you might need.
 
-###4: Set Graph Connection ENV VARS
+### 4: Set Graph Connection ENV VARS
 In the ODSC workshop, you received some graph connection credentials (`GRAPH_HOST`, `GRAPH_USER`, `GRAPH_PASSWORD`). Set those in your deployment environment with the CLI:
 ```bash
 skafos env GRAPH_HOST --set <value>
 ```
-###5: Edit the train.py or common/model.py files as you wish
+### 5: Edit the train.py or common/model.py files as you wish
 Provided is a `train.py` file that will train the standard model. Feel free to edit any of the entrypoint arguments. Below is the full set of options:
 
 ```python
@@ -51,7 +51,7 @@ args = parser.parse_args()
 
 You can run this deployment with all of the defaults.. (but note that it won't save your outputs anywhere!)
 
-###6: Deploy
+### 6: Deploy
 For the first time only, run the following in your terminal:
 ```bash
 skafos remote info
@@ -60,10 +60,10 @@ and add the provided remote with the `git remote add ...` command.
 
 After adding the skafos remote, deploy by committing your changes and running `git push skafos <branch-name>`. This will launch a deployment, build dependencies, and orchestrate all infrastructure components automatically.
 
-###7: Monitor
+### 7: Monitor
 Head over to the [**Dashboard**](https://dashboard.metismachine.io) and checkout your running deployment for this project. A couple live-training metrics, system performance, and logs are available for your review. 
 
-###8: Make some new changes and try again
+### 8: Make some new changes and try again
 Data science is all about iteration. After watching your model train.. maybe you aren't satisfied..
 Edit different components of the model, training loops, data prep, or Skafos [**User-Defined-Metrics**](https://docs.metismachine.io/docs/skafos-sdk#section-model-monitoring-user-defined-metrics) and [**Logs**](https://docs.metismachine.io/docs/skafos-sdk#section-logging).
 
