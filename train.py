@@ -31,7 +31,7 @@ args = parser.parse_args()
 ska = Skafos()
 graph = Graph(skafos=ska)
 
-if not args.save:
+if not args.save_path:
     ska.log('Heads up, your model will indeed train, but will not save outputs anywhere! Set an s3 path..', labels=['warning'])
 
 # How many edges (relationships) are in the graph?
@@ -73,12 +73,12 @@ edge_dist = stats.rv_discrete(values=(list(edge_map.keys()), list(edge_weights.v
 # Declare some modeling constants
 max_index = len(node_weights) - 1                  # how many nodes to embed
 batch_size = int(args.batchsize)                   # size of a single training batch to calculate a loss over
-negsamplesize = int(args.neg)                      # number of negative edges to pull for each observed edge
+negsamplesize = int(args.negsamplesize)            # number of negative edges to pull for each observed edge
 epochs = int(args.epochs)                          # number of passes to make through the training data
 num_batches = int(len(edge_weights) / batch_size)  # within an epoch, the number of training steps to make
-embed_dim = int(args.dim)                          # dimension of our output embeddings
+embed_dim = int(args.dimension)                    # dimension of our output embeddings
 order = int(args.order)                            # which proximity to model (from LINE)
-learning_rate = float(args.lr)                     # initial learning rate that will decay with iteration
+learning_rate = float(args.learning_rate)          # initial learning rate that will decay with iteration
 log_interval = int(args.log)                       # how often to print out summary information and reset running loss
 total_iterations = num_batches*epochs              # total number of training steps
 it = 0                                             # init iteration counter to zero
