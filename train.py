@@ -168,14 +168,14 @@ for epoch in range(epochs):
 ska.log(f'Finished training in {time()-full_start}!', labels=['training'])
 
 # Save model weights to s3 if save path given
-if args.save:
+if args.save_path:
     # Fetch embeddings from the current state
     embeddings = line.node_embeddings.weight.data.numpy()
     if 's3://' in args.save:
-        ska.log(f'Saving embeddings matrix to {args.save} on S3.', labels=['save'])
+        ska.log(f'Saving embeddings matrix to {args.save_path} on S3.', labels=['save'])
         try:
             s3 = s3fs.S3FileSystem(anon=False)
-            with s3.open(args.save, 'wb') as f:
+            with s3.open(args.save_path, 'wb') as f:
                 f.write(pickle.dumps(embeddings))
             ska.log(f'Finished writing output to s3.', labels=['save'])
         except Exception as e:
