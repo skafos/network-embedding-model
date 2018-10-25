@@ -171,7 +171,7 @@ ska.log(f'Finished training in {time()-full_start}!', labels=['training'])
 if args.save_path:
     # Fetch embeddings from the current state
     embeddings = line.node_embeddings.weight.data.numpy()
-    if 's3://' in args.save:
+    if 's3://' in args.save_path:
         ska.log(f'Saving embeddings matrix to {args.save_path} on S3.', labels=['save'])
         try:
             s3 = s3fs.S3FileSystem(anon=False)
