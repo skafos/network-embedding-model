@@ -1,12 +1,11 @@
 # Network Embedding Model
-This example trains a 128-dimensional network embedding model based on the [**LINE Algorithm**](https://arxiv.org/abs/1503.03578) on [**Skafos**](https://docs.metismachine.io/docs/skafos-components). Data is hosted in a 3rd party Graph DB (Memgraph). The technique follows from the 10/31/18 ODSC West workshop "Intro to Network Embeddings". Access to the data in the graph requires connection credentials that were provided in the workshop.
+This example trains a 128-dimensional network embedding model based on the [**LINE Algorithm**](https://arxiv.org/abs/1503.03578) on [**Skafos**](https://docs.metismachine.io/docs/skafos-components), Metis Machine's machine learning platform. Data is hosted in a 3rd party Graph DB (Memgraph). The technique follows from the 10/31/18 ODSC West workshop "Intro to Network Embeddings". Access to the data in the graph requires connection credentials that were provided in the workshop.
 
 Attendees of the workshop already will have:
 - A Skafos login
 - Workshop sample code in a jupyter lab instance and lecture slides
-- Client graph cnx credentials
+- Credentials for connecting to the graph used in the workshop: `GRAPH__HOST`, `GRAPH_USER`, and `GRAPH_PASSWORD`
 
- 
 
 ## Setup
 You will need to install the [**Skafos CLI**](https://docs.metismachine.io/docs/installation) (mac or linux), Git, and have python >= 3.6.
@@ -18,6 +17,7 @@ Each Skafos project requires its own unique project token and `metis.config.yml`
 The `metis.config.yml.example` file provided in this repo is just a sample, but is identical in structure to what you will need. In summary, [**the config file**](https://docs.metismachine.io/docs/installation) is the workhorse that controls how your deployment runs.
 
 In the next step, you wil generate your own.
+
 ### 3: Initialize the Skafos project
 Once in the working directory of this project, type:
 ```bash
@@ -56,12 +56,12 @@ For the first time only, run the following in your terminal:
 ```bash
 skafos remote info
 ```
-and add the provided remote with the `git remote add ...` command.
+and add the provided remote with the `git remote add skafos <url>` command.
 
-After adding the skafos remote, deploy by committing your changes and running `git push skafos <branch-name>`. This will launch a deployment, build dependencies, and orchestrate all infrastructure components automatically.
+After adding the skafos remote, deploy by committing your changes and running `git push skafos <current-branch-name>`. This will launch a deployment, build dependencies, and orchestrate all infrastructure components automatically.
 
 ### 7: Monitor
-Head over to the [**Dashboard**](https://dashboard.metismachine.io) and checkout your running deployment for this project. A couple live-training metrics, system performance, and logs are available for your review. 
+Head over to the [**Dashboard**](https://dashboard.metismachine.io). Login and checkout your running deployment for this project. A couple live-training metrics, system performance, and logs are available for your review. 
 
 ### 8: Make some new changes and try again
 Data science is all about iteration. After watching your model train.. maybe you aren't satisfied..
