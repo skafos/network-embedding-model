@@ -10,11 +10,11 @@ Attendees of the workshop will already have:
 ## Setup
 You will need to install the [**Skafos CLI**](https://docs.metismachine.io/docs/installation) (mac or linux), Git, and have python >= 3.6.
 
-### 1. Clone or Fork this Repo
+### 1. Fork and then Clone this Repository
 
 ### 2. Examine `metis.config.yml.example`
 Each Skafos project requires its own unique project token and `metis.config.yml` file.
-The `metis.config.yml.example` file provided in this repo is just a sample, but is identical in structure to what you will need. In summary, [**the config file**](https://docs.metismachine.io/docs/installation) is the workhorse that controls how your deployment runs.
+The `metis.config.yml.example` file provided in this repo is just a sample, but is identical in structure to what you will need. In summary, [**the config file**](https://docs.metismachine.io/docs/projects-1#section-the-config-file) is the workhorse that controls how your deployment runs.
 
 In the next step, you wil generate your own.
 
@@ -24,7 +24,7 @@ Once in the working directory of this project, type:
 skafos init
 ```
 on the command line. This will generate a fresh `metis.config.yml` file that is tied to your Skafos account and organization.
-Open up this config file and edit the **name** and **entrypoint** of the existing job to match the example config provided. The job id and project token are unique to you. Add any other options arguments that you might need.
+Open up this config file and edit the **name**, **entrypoint**, and **resources** of the existing job to match the example config provided. The job id and project token are unique to you. Add any other options arguments that you might need.
 
 ### 4: Set Graph Connection ENV VARS
 In the ODSC workshop, you received some graph connection credentials (`GRAPH_HOST`, `GRAPH_USER`, `GRAPH_PASSWORD`). Set those in your deployment environment with the CLI:
@@ -49,7 +49,7 @@ parser.add_argument("-threads", "--threads", type=int, default=1)         # Numb
 args = parser.parse_args()
 ```
 
-You can run this deployment with all of the defaults.. (but note that it won't save your outputs anywhere!)
+You can run this deployment with all of the defaults.. (but note that it won't save your outputs anywhere!). This will take a couple hours to run by default.
 
 ### 6: Deploy
 For the first time only, run the following in your terminal:
@@ -74,4 +74,4 @@ That's it! No need to focus on infrastructure..
 ## What's Next
 Pretty neat? If you have other ways you want to leverage machine learning, checkout [**AddOns**](https://docs.metismachine.io/docs/addons) and other [**SDK Features**](https://docs.metismachine.io/docs/skafos-sdk) provided with Skafos *out-of-the-box*.
 
-Reach out to the [**Skafos Slack Channel**]() with any questions or concerns. We'd also love to get your feedback!
+Reach out to the [**Skafos Slack Channel**](https://metismachine-skafos.slack.com) with any questions or concerns. We'd also love to get your feedback!
