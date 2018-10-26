@@ -1,7 +1,7 @@
 # Network Embedding Model
 This example trains a 128-dimensional network embedding model based on the [**LINE Algorithm**](https://arxiv.org/abs/1503.03578) on [**Skafos**](https://docs.metismachine.io/docs/skafos-components), Metis Machine's machine learning platform. Data is hosted in a 3rd party Graph DB (Memgraph). The technique follows from the 10/31/18 ODSC West workshop "Intro to Network Embeddings". Access to the data in the graph requires connection credentials that were provided in the workshop.
 
-Attendees of the workshop already will have:
+Attendees of the workshop will already have:
 - A Skafos login
 - Workshop sample code in a jupyter lab instance and lecture slides
 - Credentials for connecting to the graph used in the workshop: `GRAPH__HOST`, `GRAPH_USER`, and `GRAPH_PASSWORD`
