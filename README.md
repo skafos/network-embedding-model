@@ -1,4 +1,14 @@
 # Network Embedding Model
+
+**DEPRECATION WARNING**
+
+This code example was intended for use by the legacy Skafos platform and is no longer being maintained. On 05/29/2019, a new version of [Skafos](https://skafos.ai) was released, streamlining model delivery to the edge. 
+
+[Sign-up](https://dashboard.skafos.ai/sign-up) for an account, [join](https://join.slack.com/t/metismachine-skafos/shared_invite/enQtNTAxMzEwOTk2NzA5LThjMmMyY2JkNTkwNDQ1YjgyYjFiY2MyMjRkMzYyM2E4MjUxNTJmYmQyODVhZWM2MjQwMjE5ZGM1Y2YwN2M5ODI) our Slack community, and explore some [example models](https://github.com/skafos/colab-example-models) to get started.
+
+---
+
+
 This example trains a 128-dimensional network embedding model based on the [**LINE Algorithm**](https://arxiv.org/abs/1503.03578) on [**Skafos**](https://docs.metismachine.io/docs/skafos-components), Metis Machine's machine learning platform. Data is hosted in a 3rd party Graph DB (Memgraph). The technique follows from the 10/31/18 ODSC West workshop "Intro to Network Embeddings". Access to the data in the graph requires connection credentials that were provided in the workshop.
 
 Attendees of the workshop will already have:
